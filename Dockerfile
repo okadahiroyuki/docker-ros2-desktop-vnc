@@ -99,11 +99,6 @@ RUN wget https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/*
 
-RUN useradd --create-home --home-dir /home/ubuntu --shell /bin/bash --user-group --groups adm,sudo ubuntu && \
-    echo ubuntu:ubuntu | chpasswd && \
-    echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
-    echo 'Defaults env_keep="http_proxy hhtps_proxy no_proxy"' >> /etc/sudoers
-
 RUN gosu ubuntu bash -c 'echo "export DONT_PROMPT_WSL_INSTALL=1" >> /home/ubuntu/.bashrc' && \
     gosu ubuntu bash -c 'DONT_PROMPT_WSL_INSTALL=1 codium --install-extension ms-ceintl.vscode-language-pack-ja' && \
     gosu ubuntu bash -c 'DONT_PROMPT_WSL_INSTALL=1 codium --install-extension ms-python.python'
@@ -138,10 +133,8 @@ RUN rm /etc/apt/apt.conf.d/docker-clean
 
 
 COPY ./entrypoint.sh /
-RUN dos2unix /entrypoint.sh
 ENTRYPOINT [ "/bin/bash", "-c", "/entrypoint.sh" ]
 
-ENV USER ubuntu
-ENV PASSWD ubuntu
-ENV HOME=/home/ubuntu
+USER ubuntu
+WORKDIR /home/ubuntu
 
