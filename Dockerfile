@@ -137,11 +137,6 @@ RUN apt-get update -q && \
 RUN rm /etc/apt/apt.conf.d/docker-clean
 
 
-COPY ./ai-robot-book.sh /ai-robot-book.sh
-RUN dos2unix /ai-robot-book.sh
-RUN mkdir -p /tmp/ros_setup_scripts_ubuntu && mv /ai-robot-book.sh /tmp/ros_setup_scripts_ubuntu/ && \
-    gosu ubuntu /tmp/ros_setup_scripts_ubuntu/ai-robot-book.sh
-
 COPY ./entrypoint.sh /
 RUN dos2unix /entrypoint.sh
 ENTRYPOINT [ "/bin/bash", "-c", "/entrypoint.sh" ]
