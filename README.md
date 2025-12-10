@@ -1,8 +1,9 @@
 # Ubuntuデスクトップ＋ROS2にアクセスするためのHTML5 VNCインターフェースを提供するDockerfile
-This Dockerfile is based on <br>
-https://github.com/Tiryoh/docker-ros2-desktop-vnc<br>
-https://github.com/AI-Robot-Book-Humble<br>
-which is released under the Apache-2.0 license.
+このリポジトリは以下のリポジトリに基づいています
+- https://github.com/Tiryoh/docker-ros2-desktop-vnc
+- https://github.com/AI-Robot-Book-Humble
+これらは Apache-2.0 ライセンスのもとで公開されています。
+
 
 
 
