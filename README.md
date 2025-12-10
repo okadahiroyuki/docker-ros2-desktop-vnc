@@ -6,7 +6,11 @@
 
 
 # 参照サイト
-[ROS/ROS2のGUIをWebブラウザ経由でお手軽に試せるDockerfileを公開しました](https://memoteki.net/archives/2955)2020.5.20
+[docker-ros2-desktop-vnc](https://github.com/Tiryoh/docker-ros2-desktop-vnc)(2025.12.1)
+[ROS 2とPythonで作って学ぶAIロボット入門 改訂第2版のサポートサイト](https://github.com/AI-Robot-Book-Humble/docker-ros2-desktop-ai-robot-book-humble)(2025.6.1)
+[ROS/ROS2のGUIをWebブラウザ経由でお手軽に試せるDockerfileを公開しました](https://memoteki.net/archives/2955)(2020.5.20)
+
+
 
 
 
