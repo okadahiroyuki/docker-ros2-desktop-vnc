@@ -51,7 +51,7 @@ RUN apt-get update && \
         tigervnc-standalone-server tigervnc-common \
         supervisor wget curl gosu git sudo python3-full python3-pip tini \
         build-essential vim sudo lsb-release locales \
-        bash-completion tzdata terminator && \
+        bash-completion tzdata terminator \
         dos2unix \
         apt-utils \
         nvtop \
