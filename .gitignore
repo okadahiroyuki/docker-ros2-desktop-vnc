@@ -1,4 +1,4 @@
-share/
+ros2_ws/
 devel/
 logs/
 build/
