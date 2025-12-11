@@ -125,6 +125,7 @@ RUN apt-get update -q && \
 # Enable apt-get completion after running `apt-get update` in the container
 RUN rm /etc/apt/apt.conf.d/docker-clean
 
+RUN mkdir ~/.config/mate
 COPY ./assets/backgrounds.xml ~/.config/mate/backgrounds.xml
 COPY ./assets/entrypoint.sh /
 ENTRYPOINT [ "/bin/bash", "-c", "/entrypoint.sh" ]
