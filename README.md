@@ -11,21 +11,33 @@
 [ROS/ROS2のGUIをWebブラウザ経由でお手軽に試せるDockerfileを公開しました](https://memoteki.net/archives/2955)(2020.5.20)<br>
 
 
-
-
-
-
-
-amd64
+# 準備
+### リポジトリのクローン
 ```
-docker buildx build --platform=linux/amd64 --progress=plain -t tiryoh/ros2-desktop-vnc:jazzy-amd64 .
+cd ~
+git clone -b jazzy https://github.com/okadahiroyuki/docker-ros2-desktop-vnc.git
 ```
-arm64
+### Dockerイメージのビルド
 ```
-docker buildx build --platform=linux/arm64 --progress=plain -t okdhryk/ros2-desktop-vnc:jazzy-arm64 .
+cd ~/docker-ros2-desktop-vnc
+```
+amd64の場合
+```
+docker buildx build --platform=linux/amd64 --progress=plain -t okadahiroyuki/ros2-desktop-vnc:jazzy-amd64 .
+```
+arm64の場合
+```
+docker buildx build --platform=linux/arm64 --progress=plain -t okadahiroyuki/ros2-desktop-vnc:jazzy-arm64 .
 ```
 
+### Dockerコンテナの起動
 ```
-docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m okdhryk/ros2-desktop-vnc:jazzy-arm64
+docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m okadahiroyuki/ros2-desktop-vnc:jazzy-arm64
 ```
-% docker run -p 6080:80 -v ./share:/re --security-opt seccomp=unconfined --shm-size=512m okdhryk/ros2-desktop-vnc:jazzy-arm64
+ホストPCのディレクトリをマウントする場合は下記のように-vオプションを指定する
+```
+docker run -p 6080:80 -v ./ros2_ws:/home/ubuntu/ros2_ws --security-opt seccomp=unconfined --shm-size=512m okadahiroyuki/ros2-desktop-vnc:jazzy-arm64
+```
+
+### 動作確認
+ブラウザから[http://localhost:6080](http://localhost:6080)にアクセスしてください。
