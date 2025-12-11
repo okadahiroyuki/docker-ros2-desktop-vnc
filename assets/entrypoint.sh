@@ -358,8 +358,7 @@ echo "NOTE 2: --security-opt seccomp=unconfined flag is required to launch Ubunt
 echo -e 'See \e]8;;https://github.com/Tiryoh/docker-ros2-desktop-vnc/pull/56\e\\https://github.com/Tiryoh/docker-ros2-desktop-vnc/pull/56\e]8;;\e\\'
 echo "============================================================================================"
 
-sudo -u ubuntu -i bash -c "mkdir -p /home/ubuntu/.config/pcmanfm/LXDE/ \
-    && cp /usr/share/doro-lxde-wallpapers/desktop-items-0.conf /home/ubuntu/.config/pcmanfm/LXDE/"
+
 
 # clearup
 PASSWORD=
