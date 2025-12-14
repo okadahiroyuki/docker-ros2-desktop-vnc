@@ -30,20 +30,19 @@ sed -i "s/password = WebUtil.getConfigVar('password');/password = '$VNC_PASSWORD
 
 USER_HOME="/home/ubuntu"
 
+# updated by Hiroyuki Okada<okdhryk@gmail.com> 4 Dec. 2025
 # 壁紙設定スクリプト
 mkdir -p "$USER_HOME/bin"
 cat << 'EOF' > "$USER_HOME/bin/set-wallpaper.sh"
 #!/bin/bash
-
 # セッション立ち上がり待ち（必要に応じて時間を調整）
 sleep 3
-
 gsettings set org.mate.background picture-filename "/usr/share/backgrounds/volvo-240-4.jpg"
 gsettings set org.mate.background picture-options "zoom"
 EOF
-
 chown ubuntu:ubuntu "$USER_HOME/bin/set-wallpaper.sh"
 chmod +x "$USER_HOME/bin/set-wallpaper.sh"
+
 
 # autostart 設定
 AUTOSTART_DIR="$USER_HOME/.config/autostart"
@@ -105,7 +104,9 @@ user=root
 [program:vnc]
 command=gosu '$USER' bash '$VNCRUN_PATH'
 [program:novnc]
-command=gosu '$USER' bash -c "websockify --web=/usr/lib/novnc 80 localhost:5901"
+# updated by Hiroyuki Okada<okdhryk@gmail.com> 4 Dec. 2025
+#command=gosu '$USER' bash -c "websockify --web=/usr/lib/novnc 80 localhost:5901"
+command=gosu '$USER' bash -c "websockify --web=/usr/lib/novnc 6080 localhost:5901"
 EOF
 
 # colcon
